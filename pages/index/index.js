@@ -4,7 +4,8 @@ var app = getApp()
 Page({
   data: {
     motto: 'Hello World',
-    userInfo: {}
+    userInfo: {},
+    isbncode: ''
   },
   //事件处理函数
   bindViewTap: function() {
@@ -18,7 +19,51 @@ Page({
     })
   },
   scanISBN: function(e) {
+    var that = this
     wx.scanCode({
+      success: function(res){
+        // success
+        console.log(res)
+        that.setData({
+          isbncode: res.result
+        })
+      },
+      fail: function(res) {
+        // fail
+      },
+      complete: function(res) {
+        // complete
+      }
+    })
+  },
+  showModal: function() {
+    wx.showModal({
+      title: 'Modal',
+      content: 'hello world',
+      showCancel: true,
+      success: function(res) {
+        if (res.confirm) {
+          console.log(res)
+          console.log('success')
+        } else {
+          console.log(res)
+          console.log('用户点击取消')
+        }
+      },
+      fail: function() {
+      }
+    })
+  },
+  apiRequest: function() {
+    wx.request({
+      url: 'http://feedback.api.juhe.cn/ISBN',
+      data: {
+        key: '436d9b993fd3c3138954fd6fc9f89053',
+        sub: '9787546310527'
+      },
+      dataType: 'json',
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
       success: function(res){
         // success
         console.log(res)
