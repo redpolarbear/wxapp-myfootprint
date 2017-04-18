@@ -55,6 +55,7 @@ Page({
     })
   },
   apiRequest: function() {
+    var that = this
     wx.request({
       url: 'http://feedback.api.juhe.cn/ISBN',
       data: {
@@ -67,6 +68,39 @@ Page({
       success: function(res){
         // success
         console.log(res)
+        if (res.statusCode == 200) {
+          var dataString = JSON.stringify(res.data.result)
+          wx.navigateTo({
+            url: '../bookinfo/bookinfo?data=' + dataString,
+            success: function(res){
+              // success
+            },
+            fail: function(res) {
+              // fail
+            },
+            complete: function(res) {
+              // complete
+            }
+          })
+        }
+
+      },
+      fail: function(res) {
+        // fail
+      },
+      complete: function(res) {
+        // complete
+      }
+    })
+  },
+  navigate() {
+    var world = {
+      hello: "world"
+    }
+    wx.navigateTo({
+      url: '../bookinfo/bookinfo?text=' + JSON.stringify(world),
+      success: function(res){
+        // success
       },
       fail: function(res) {
         // fail
@@ -83,7 +117,7 @@ Page({
     app.getUserInfo(function(userInfo){
       //更新数据
       that.setData({
-        userInfo:userInfo
+        userInfo: userInfo
       })
     })
     app.todoRef.bindAsArray(this, 'todo', function(err) {

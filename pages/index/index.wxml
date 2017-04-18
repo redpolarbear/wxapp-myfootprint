@@ -8,16 +8,27 @@
   <button class="weui-btn" type="primary" size="default" bindtap="apiRequest">API Request</button>
     <button class="weui-btn" type="primary" size="default" bindtap="showModal">Show Modal</button>
 </view>
-  <navigator url="../bookinfo/bookinfo" open-type="navigate">跳转到新页面</navigator>
+
+<view>
+  <navigator url="../bookinfo/bookinfo?hello={'world': 'text'}" open-type="navigate">跳转到新页面</navigator>
+</view>
+
 <view class="page__bd page__bd_spacing">
+  <button class="weui-btn" type="primary" size="default" bindtap="navigate">Navigator</button>
   <button class="weui-btn" type="primary" size="default" bindtap="addData">Add Data to WD</button>
 </view>
+
+
+
+
 
 <view wx:key="*this" wx:for="{{todo}}">{{item[".key"]}}-{{item[".value"]}}</view>
 
 <view class="page__bd page__bd_spacing">{{isbncode}}</view>
 
 <text class="fa fa-camera fa-2x"></text>
+
+<text>{{bookinfo.author}}</text>
 <!--<view class="container">
   <view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>

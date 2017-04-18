@@ -1,8 +1,11 @@
 {
   "pages":[
     "pages/index/index",
+
     "pages/logs/logs",
-    "pages/bookinfo/bookinfo"
+    "pages/bookinfo/bookinfo",
+    "pages/bookshelf/bookshelf",
+    "pages/foodfridge/foodfridge"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -11,12 +14,16 @@
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
+    "selectedColor": "#09bb07",
     "list": [{
       "pagePath": "pages/index/index",
-      "text": "Index"
+      "text": "Home"
     }, {
-      "pagePath": "pages/logs/logs",
-      "text": "Log"
+      "pagePath": "pages/bookshelf/bookshelf",
+      "text": "Book"
+    }, {
+      "pagePath": "pages/foodfridge/foodfridge",
+      "text": "Food"
     }]
   }
 }
