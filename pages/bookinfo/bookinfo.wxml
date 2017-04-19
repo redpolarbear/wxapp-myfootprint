@@ -1,4 +1,50 @@
-<view>
-Book Info Page
-</view>
 
+<view class="page__bd page__bd_spacing">
+  <view style="margin: auto; text-align: center">
+    <image style="width: 200px; height: 200px;" mode="aspectFit" src="{{result.images_medium}}"></image>
+  </view>
+  <view class="button-sp-area">
+    <button class="weui-btn mini-btn" type="default" size="mini">收藏此书</button>
+    <button class="weui-btn mini-btn" type="default" size="mini">正在阅读</button>
+    <button class="weui-btn mini-btn" type="default" size="mini">阅读完毕</button>
+  </view>
+  <view class="weui-form-preview">
+    <view class="weui-form-preview__hd">
+      <view class="weui-form-preview__item">
+
+        <!--<view class="weui-form-preview__label">付款金额</view>-->
+        <view class="weui-form-preview__value_in-hd">{{result.title}}</view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_access weui-cell_link">
+      <view class="weui-cell__bd">{{result.summary}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </view>
+    <view class="weui-form-preview__bd">
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">作者</view>
+        <view class="weui-form-preview__value">{{result.author}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">译者</view>
+        <view class="weui-form-preview__value">{{result.translator}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">出版社</view>
+        <view class="weui-form-preview__value">{{result.publisher}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">出版日期</view>
+        <view class="weui-form-preview__value">{{result.pubdate}}</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">页码</view>
+        <view class="weui-form-preview__value">{{result.pages}} 页</view>
+      </view>
+      <view class="weui-form-preview__item">
+        <view class="weui-form-preview__label">ISBN码</view>
+        <view class="weui-form-preview__value">{{result.isbn10}} / {{result.isbn13}}</view>
+      </view>
+    </view>
+  </view>
+</view>
