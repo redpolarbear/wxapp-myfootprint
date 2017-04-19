@@ -24,7 +24,8 @@ App({
           wx.getUserInfo({
             success: function (res) {
               that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
+              that.globalData.userUid = wx.getStorageSync('wilddog123:UUID')
+              typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.userUid)
             }
           })
         }
@@ -32,6 +33,7 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo: null,
+    userUid: null
   }
 })
