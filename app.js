@@ -52,7 +52,20 @@ App({
                     success: function(res){
                       // success
                       // console.log(res)
-                      that.globalData.userUid = res.data
+                      that.globalData.userUid = res.data.openId
+                      wx.setStorage({
+                        key: 'openId',
+                        data: res.data.openId,
+                        success: function(res){
+                          // success
+                        },
+                        fail: function(res) {
+                          // fail
+                        },
+                        complete: function(res) {
+                          // complete
+                        }
+                      })
                       typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.userUid)
                     },
                     fail: function(res) {

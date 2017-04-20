@@ -3,10 +3,8 @@
 var app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
     userInfo: {},
     userUid: '',
-    isbncode: '',
     data: {
       "author": "《图说天下·珍藏版》编委会 编",
       "binding": "",
@@ -32,6 +30,23 @@ Page({
       url: '../logs/logs'
     })
   },
+  openActionSheet: function() {
+    var that = this
+    wx.showActionSheet({
+        itemList: ['扫描图书ISBN', '新建读书记录'],
+        success: function(res) {
+          if (!res.cancel) {
+            if (res.tapIndex == 0) {
+              // scan ISBN
+              that.scanISBN()
+            } else if (res.tapIndex == 1) {
+              // new reading record
+            }
+            console.log(res.tapIndex)
+          }
+        }
+    });
+  },
   addData: function(e) {
     // var uid = wx.getStorageSync('wilddog123:UUID')
     // console.log(uid)
@@ -45,9 +60,10 @@ Page({
       success: function(res){
         // success
         console.log(res)
-        that.setData({
-          isbncode: res.result
-        })
+        var isbn = res.result
+        // if isbn is a valid isbn code, navigate to book info page
+
+        // if isbn is not a valid isbn code, pop the modal showing the error
       },
       fail: function(res) {
         // fail

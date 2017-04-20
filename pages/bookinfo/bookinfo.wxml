@@ -6,7 +6,7 @@
   <view class="button-sp-area">
     <button class="weui-btn mini-btn" type="default" size="mini">收藏此书</button>
     <button class="weui-btn mini-btn" type="default" size="mini">正在阅读</button>
-    <button class="weui-btn mini-btn" type="default" size="mini">阅读完毕</button>
+    <button class="weui-btn mini-btn" type="default" size="mini" disabled>阅读完毕</button>
   </view>
   <view class="weui-form-preview">
     <view class="weui-form-preview__hd">

@@ -23,7 +23,16 @@
 .usermotto {
   margin-top: 200px;
 }
-/*
-.navbar-button__plus > .weui-btn {
-  border: 1px solid black;
-}*/
+
+.navbar-button__plus {
+  margin-bottom: auto;
+  margin-right: 15px;
+  margin-top: auto;
+}
+
+.plus-btn {
+  font-size: 15px;
+  height: 38px;
+  margin-top: auto;
+}
+

@@ -1,21 +1,19 @@
-<!--pages/bookshelf/bookshelf.wxml-->
-<view class="stv-container">
-  <view class="tab-bar">
-    <view wx:for="{{tabs}}" wx:key="unique" data-index=
-    "{{index}}" bindtap="handlerTabTap" class="tab {{activeTab==index?'tab-active':''}}" style="width: {{stv.windowWidth/tabs.length}}px">
-      <text>{{item}}</text>
+<view class="page">
+    <view class="page__bd">
+        <view class="weui-tab">
+            <view class="weui-navbar">
+                <block wx:for="{{tabs}}" wx:key="*this">
+                    <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+                        <view class="weui-navbar__title">{{item}}</view>
+                    </view>
+                </block>
+                <view class="weui-navbar__slider" style="left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+            </view>
+            <view class="weui-tab__panel">
+                <view class="weui-tab__content" hidden="{{activeIndex != 0}}">选项一的内容</view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 1}}">选项二的内容</view>
+                <view class="weui-tab__content" hidden="{{activeIndex != 2}}">选项三的内容</view>
+            </view>
+        </view>
     </view>
-    <view style="width: {{stv.lineWidth}}px; left: {{stv.offset/tabs.length}}px" class="under-line {{!stv.tStart? 'withAnimate': ''}}"></view>
-  </view>
-  <view class="scroll-view">
-    <view bindtouchstart="handlerStart" catchtouchmove="handlerMove" bindtouchcancel="handlerCancel" bindtouchend="handlerEnd"  class="scroll-view-wrapper {{!stv.tStart? 'withAnimate': ''}}" style="left: -{{stv.offset}}px">
-      <view style="width: {{stv.windowWidth}}px;" wx:for="{{tabs}}" wx:key="unique" class="one-scene">
-        <scroll-view style="height:100%" scroll-y>
-          <view>
-            <text>这是第{{index+1}}个页面</text>
-          </view>
-        </scroll-view>
-      </view>
-    </view>
-  </view>
 </view>
