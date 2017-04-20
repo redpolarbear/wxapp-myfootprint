@@ -1,5 +1,9 @@
 /**index.wxss**/
-.userinfo {
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+.navbar__userinfo {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -19,3 +23,7 @@
 .usermotto {
   margin-top: 200px;
 }
+/*
+.navbar-button__plus > .weui-btn {
+  border: 1px solid black;
+}*/

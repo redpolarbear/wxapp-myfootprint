@@ -11,21 +11,65 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
     wilddog.initializeApp(config)
-    this.todoRef = wilddog.sync().ref('todo')
+    this.BoooksRef = wilddog.sync().ref('Books')
   },
   getUserInfo:function(cb){
     var that = this
     if(this.globalData.userInfo){
       typeof cb == "function" && cb(this.globalData.userInfo)
     }else{
-      //调用登录接口
       wx.login({
-        success: function () {
-          wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              that.globalData.userUid = wx.getStorageSync('wilddog123:UUID')
-              typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.userUid)
+        success: function (res) {
+          // console.log(res)
+          var js_code = res.code
+          var appid = 'wxf2868d0e8c61d87f'
+          var secret = '563a4e932c72054155b44fc11e54e202'
+          var grant_type = 'authorization_codegran'
+          wx.request({
+            url: 'https://api.weixin.qq.com/sns/jscode2session',
+            data: { appid, secret, js_code, grant_type },
+            method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            // header: {}, // 设置请求的 header
+            success: function(res){
+              // success
+              // console.log(res)
+              var session_key = res.data.session_key // get the session_key
+              wx.getUserInfo({
+                success: function (res) {
+                  // console.log(res)
+                  var encryptedData = res.encryptedData
+                  var iv = res.iv
+                  that.globalData.userInfo = res.userInfo
+                  wx.request({
+                    url: 'http://localhost:3000/onLogin',
+                    data: {
+                      session_key,
+                      iv,
+                      encryptedData,
+                    },
+                    method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                    // header: {}, // 设置请求的 header
+                    success: function(res){
+                      // success
+                      // console.log(res)
+                      that.globalData.userUid = res.data
+                      typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.userUid)
+                    },
+                    fail: function(res) {
+                      // fail
+                    },
+                    complete: function(res) {
+                      // complete
+                    }
+                  })
+                }
+              })
+            },
+            fail: function(res) {
+              // fail
+            },
+            complete: function(res) {
+              // complete
             }
           })
         }

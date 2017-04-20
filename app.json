@@ -10,7 +10,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "My Clock-in",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {

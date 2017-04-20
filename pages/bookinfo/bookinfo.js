@@ -1,10 +1,18 @@
 //bookinfo.js
+var app = getApp()
 Page({
   data:{
     result: {}
   },
   onLoad:function(options){
     // 生命周期函数--监听页面加载
+    var param = JSON.parse(options.data)
+    
+
+
+
+
+
     console.log(JSON.parse(options.data))
     this.setData({
       result: JSON.parse(options.data)

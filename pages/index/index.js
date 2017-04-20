@@ -155,13 +155,13 @@ Page({
         userUid: userUid
       })
     })
-    app.todoRef.bindAsArray(this, 'todo', function(err) {
-      if(err != null){
-        // 数据绑定失败，失败原因：err.message;
-        console.log(err)
-      } else {
-          // 数据绑定成功
-      }
-    })
+    // app.todoRef.bindAsArray(this, 'todo', function(err) {
+    //   if(err != null){
+    //     // 数据绑定失败，失败原因：err.message;
+    //     console.log(err)
+    //   } else {
+    //       // 数据绑定成功
+    //   }
+    // })
   }
 })
