@@ -1,4 +1,8 @@
-.weui-cell::before {
+/*.weui-cell::before {
+    
+}*/
+
+.weui-form-preview__hd::after {
     display: none;
 }
 

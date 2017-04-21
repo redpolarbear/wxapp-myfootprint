@@ -1,8 +1,8 @@
 //app.js
 var wilddog = require('utils/wilddog-weapp-all')
 var config = {
-    syncURL: 'https://wxapp-bookstack.wilddogio.com',
-    authDomain: 'wxapp-bookstack.wilddog.com'
+  syncURL: 'https://wxapp-bookstack.wilddogio.com',
+  authDomain: 'wxapp-bookstack.wilddog.com'
 }
 App({
   onLaunch: function () {
@@ -11,13 +11,13 @@ App({
     // logs.unshift(Date.now())
     // wx.setStorageSync('logs', logs)
     wilddog.initializeApp(config)
-    this.BoooksRef = wilddog.sync().ref('Books')
+    this.BooksRef = wilddog.sync().ref('Books')
   },
-  getUserInfo:function(cb){
+  getUserInfo: function (cb) {
     var that = this
-    if(this.globalData.userInfo){
+    if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
+    } else {
       wx.login({
         success: function (res) {
           // console.log(res)
@@ -30,7 +30,7 @@ App({
             data: { appid, secret, js_code, grant_type },
             method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             // header: {}, // 设置请求的 header
-            success: function(res){
+            success: function (res) {
               // success
               // console.log(res)
               var session_key = res.data.session_key // get the session_key
@@ -40,56 +40,57 @@ App({
                   var encryptedData = res.encryptedData
                   var iv = res.iv
                   that.globalData.userInfo = res.userInfo
-                  wx.request({
-                    url: 'http://localhost:3000/onLogin',
-                    data: {
-                      session_key,
-                      iv,
-                      encryptedData,
-                    },
-                    method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-                    // header: {}, // 设置请求的 header
-                    success: function(res){
-                      // success
-                      // console.log(res)
-                      that.globalData.userUid = res.data.openId
-                      wx.setStorage({
-                        key: 'openId',
-                        data: res.data.openId,
-                        success: function(res){
-                          // success
-                        },
-                        fail: function(res) {
-                          // fail
-                        },
-                        complete: function(res) {
-                          // complete
-                        }
-                      })
-                      typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.userUid)
-                    },
-                    fail: function(res) {
-                      // fail
-                    },
-                    complete: function(res) {
-                      // complete
-                    }
-                  })
+                  // wx.request({
+                  //   url: 'http://localhost:3000/onLogin',
+                  //   data: {
+                  //     session_key,
+                  //     iv,
+                  //     encryptedData,
+                  //   },
+                  //   method: 'post', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                  //   // header: {}, // 设置请求的 header
+                  //   success: function(res){
+                  //     // success
+                  //     // console.log(res)
+                  //     that.globalData.userUid = res.data.openId
+                  //     wx.setStorage({
+                  //       key: 'openId',
+                  //       data: res.data.openId,
+                  //       success: function(res){
+                  //         // success
+                  //       },
+                  //       fail: function(res) {
+                  //         // fail
+                  //       },
+                  //       complete: function(res) {
+                  //         // complete
+                  //       }
+                  //     })
+                  that.globalData.userUid = 'oCU8L0Z-SrStLT6QC62oSUgyVw3M'
+                  typeof cb == "function" && cb(that.globalData.userInfo, that.globalData.userUid)
+                },
+                fail: function (res) {
+                  // fail
+                },
+                complete: function (res) {
+                  // complete
                 }
               })
-            },
-            fail: function(res) {
-              // fail
-            },
-            complete: function(res) {
-              // complete
             }
           })
+        },
+        fail: function (res) {
+          // fail
+        },
+        complete: function (res) {
+          // complete
         }
       })
     }
+    // })
+    // }
   },
-  globalData:{
+  globalData: {
     userInfo: null,
     userUid: null
   }

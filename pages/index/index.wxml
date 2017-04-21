@@ -5,13 +5,12 @@
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
   </view>
   <view class="navbar-button__plus">
-    <button class="weui-btn mini-btn plus-btn" type="default" bindtap="openActionSheet">新建</button>
+    <button class="weui-btn mini-btn plus-btn" type="default" bindtap="openActionSheet">＋新建</button>
   </view>
   <!--<text class="userinfo-nickname">{{userUid}}</text>-->
 </view>
 <view class="page__bd page__bd_spacing">
-  <button class="weui-btn" type="primary" size="default" bindtap="scanISBN">Scan ISBN</button>
-  <button class="weui-btn" type="primary" size="default" bindtap="apiRequest">Book Info Page</button>
+  <button class="weui-btn" type="primary" size="default" bindtap="openBook">Book Info Page</button>
     <button class="weui-btn" type="primary" size="default" bindtap="showModal">Show Modal</button>
 </view>
 
