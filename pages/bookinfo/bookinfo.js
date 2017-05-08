@@ -47,7 +47,7 @@ Page({
           wx.request({
             url: 'http://feedback.api.juhe.cn/ISBN',
             data: {
-              key: '436d9b993fd3c3138954fd6fc9f89053',
+              key: '',
               sub: param
             },
             dataType: 'json',

@@ -1,8 +1,8 @@
 //app.js
 var wilddog = require('utils/wilddog-weapp-all')
 var config = {
-  syncURL: 'https://wxapp-bookstack.wilddogio.com',
-  authDomain: 'wxapp-bookstack.wilddog.com'
+  syncURL: '',
+  authDomain: ''
 }
 App({
   onLaunch: function () {
