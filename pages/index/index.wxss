@@ -1,8 +1,10 @@
 /**index.wxss**/
+
 .navbar {
   display: flex;
   justify-content: space-between;
 }
+
 .navbar__userinfo {
   display: flex;
   flex-direction: row;
@@ -35,4 +37,61 @@
   height: 38px;
   margin-top: auto;
 }
+
+.card__bd {
+  padding-bottom: 20px;
+}
+
+.card__bd_spacing {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.form-title {
+  display: flex;
+  background: white;
+}
+
+.form-title__image {
+  width: 64px;
+  height: 64px;
+  background-color: #eee;
+}
+
+.form-title__textarea {
+  flex-grow: 1;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 2px;
+}
+
+.weui-textarea-counter {
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.form-time {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-time__title {
+  background: #e8e8e8;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: center;
+  width: 100%;
+}
+
+.form-time__add {
+  background: white;
+  text-align: center;
+}
+
+.form-time__add > button {
+  margin: auto;
+}
+
+
+
 

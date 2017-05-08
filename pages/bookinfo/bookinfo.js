@@ -45,7 +45,7 @@ Page({
         } else if (snap.val() == null) {
           // search the book in JUHE by the isbn
           wx.request({
-            url: 'https://feedback.api.juhe.cn/ISBN',
+            url: 'http://feedback.api.juhe.cn/ISBN',
             data: {
               key: '436d9b993fd3c3138954fd6fc9f89053',
               sub: param

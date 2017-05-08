@@ -1,3 +1,4 @@
+
 <!--index.wxml-->
 <view class="navbar">
   <view class="navbar__userinfo">
@@ -7,33 +8,42 @@
   <view class="navbar-button__plus">
     <button class="weui-btn mini-btn plus-btn" type="default" bindtap="openActionSheet">＋新建</button>
   </view>
+
   <!--<text class="userinfo-nickname">{{userUid}}</text>-->
 </view>
 <view class="page__bd page__bd_spacing">
   <button class="weui-btn" type="primary" size="default" bindtap="openBook">Book Info Page</button>
-    <button class="weui-btn" type="primary" size="default" bindtap="showModal">Show Modal</button>
+  <button class="weui-btn" type="primary" size="default" bindtap="showModal">Show Modal</button>
 </view>
-
 <view>
   <navigator url="../bookinfo/bookinfo?hello={'world': 'text'}" open-type="navigate">跳转到新页面</navigator>
 </view>
-
 <view class="page__bd page__bd_spacing">
   <button class="weui-btn" type="primary" size="default" bindtap="navigate">Navigator</button>
   <button class="weui-btn" type="primary" size="default" bindtap="addData">Add Data to WD</button>
 </view>
-
-
-
-
-
 <view wx:key="*this" wx:for="{{todo}}">{{item[".key"]}}-{{item[".value"]}}</view>
-
 <view class="page__bd page__bd_spacing">{{isbncode}}</view>
-
-<text class="fa fa-camera fa-2x"></text>
-
+<text class="fa fa-camera"></text>
+<view class="card__bd card__bd_spacing">
+  <view class="form-title">
+    <image class="form-title__image" src="https://placehold.it/64x64"></image>
+    <view class="form-title__textarea">
+      <textarea class="weui-textarea" placeholder="请输入标题" style="height: 39px" />
+      <view class="weui-textarea-counter">0/200</view>
+    </view>
+  </view>
+</view>
+<view class="card__bd card__bd_spacing">
+  <view class="form-time">
+    <view class="form-time__title">Event Time</view>
+    <view class="form-time__add">
+      <button class="weui-btn mini-btn" type="primary" size="mini">按钮</button>
+    </view>
+  </view>
+</view>
 <text>{{bookinfo.author}}</text>
+
 <!--<view class="container">
   <view  bindtap="bindViewTap" class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>

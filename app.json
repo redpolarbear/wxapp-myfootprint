@@ -10,7 +10,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#f8f8f8",
-    "navigationBarTitleText": "My Clock-in",
+    "navigationBarTitleText": "E'nvite",
     "navigationBarTextStyle":"black"
   },
   "tabBar": {
